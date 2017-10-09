@@ -94,9 +94,7 @@ void loop() {
     {
       nt = (buffer_rx[1] << 8 | buffer_rx[2]);
       // arithmetic, then convert back
-      nt = swap_int16(nt);
-      nt *= 3;
-      nt = swap_int16(nt);
+      nt += 3;
       buffer_tx[0] = 'i';
       buffer_tx[1] = highByte(nt);
       buffer_tx[2] = lowByte(nt);
@@ -108,9 +106,7 @@ void loop() {
     else if (comp == 'l')
     {
       lng = (long)(buffer_rx[1] << 24 | buffer_rx[2] << 16 | buffer_rx[3] << 8 | buffer_rx[4]);
-      lng = swap_int32(lng);
       lng *= 10;
-      lng = swap_int32(lng);
       buffer_tx[0] = 'l';
       buffer_tx[1] = (int)((lng >> 24) & 0xFF);
       buffer_tx[2] = (int)((lng >> 16) & 0xFF);
