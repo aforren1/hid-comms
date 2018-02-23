@@ -3,8 +3,8 @@ int i;
 
 const int led_pin = 13;
 
-byte buffer_tx[64];
-byte buffer_rx[64];
+uint8_t buffer_tx[64];
+uint8_t buffer_rx[64];
 
 void setup() {
   pinMode(led_pin, OUTPUT); // set up to blink LED
